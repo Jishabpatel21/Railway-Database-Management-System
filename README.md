@@ -446,9 +446,7 @@ python web.py
 
 ---
 
-** Star this repository if you found it helpful!**
 
-**Made with  for seamless railway booking experience**
 
  
 
