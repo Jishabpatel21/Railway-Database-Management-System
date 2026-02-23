@@ -88,7 +88,64 @@ The **Railway Management System** is a full-stack web application that replicate
 
 ---
 
-## 🛠️ Technology Stack
+## � Screenshots
+
+### Application Interface
+
+<div align="center">
+
+#### 🏠 Home Page Banner
+![Banner](screenshots/Banner.png)
+*Welcome page with navigation and quick access features*
+
+#### 👤 User Authentication
+
+<table>
+<tr>
+<td width="50%">
+
+**User Login**  
+![User Login](screenshots/UserLogin.png)
+
+</td>
+<td width="50%">
+
+**User Registration**  
+![User Registration](screenshots/UserReg.png)
+
+</td>
+</tr>
+</table>
+
+#### 🔐 Admin Panel
+
+<table>
+<tr>
+<td width="50%">
+
+**Admin Login**  
+![Admin Login](screenshots/AdminLogin.png)
+
+</td>
+<td width="50%">
+
+**Admin Dashboard**  
+![Admin Dashboard](screenshots/AdminDashboard.png)
+
+</td>
+</tr>
+</table>
+
+#### 🎫 Ticket Management
+
+![Ticket Release](screenshots/TicketRelese.png)
+*Admin interface for releasing General and Tatkal tickets*
+
+</div>
+
+---
+
+## �🛠️ Technology Stack
 
 ### Backend Technologies
 
