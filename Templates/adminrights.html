@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket Release Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height:100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url("https://images.unsplash.com/photo-1501785888041-af3ef285b470");
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            flex-direction:column;
+        }
+
+        /* NAVBAR */
+        header{
+            width:100%;
+            padding:15px 60px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        header h2{
+            color:#fff;
+            font-weight:600;
+        }
+
+        nav ul{
+            list-style:none;
+            display:flex;
+            gap:25px;
+        }
+
+        nav ul li a{
+            text-decoration:none;
+            color:#fff;
+            transition:0.3s;
+        }
+
+        nav ul li a:hover{
+            color:#00d4ff;
+        }
+
+        /* MAIN CONTAINER */
+        .container{
+            flex:1;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .card{
+            width:400px;
+            padding:40px;
+            border-radius:20px;
+            background:rgba(255,255,255,0.1);
+            backdrop-filter:blur(20px);
+            border:1px solid rgba(255,255,255,0.2);
+            box-shadow:0 8px 32px rgba(0,0,0,0.5);
+            text-align:center;
+            animation:fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn{
+            from{opacity:0; transform:translateY(-30px);}
+            to{opacity:1; transform:translateY(0);}
+        }
+
+        .card h1{
+            color:#fff;
+            margin-bottom:30px;
+        }
+
+        .button{
+            width:100%;
+            padding:14px;
+            margin-bottom:20px;
+            border:none;
+            border-radius:12px;
+            background:linear-gradient(135deg,#00d4ff,#0072ff);
+            color:#fff;
+            font-weight:700;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .button:hover{
+            transform:translateY(-3px);
+            box-shadow:0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .logout-btn{
+            background:linear-gradient(135deg,#ff4b2b,#ff416c);
+        }
+
+        footer{
+            text-align:center;
+            padding:10px;
+            color:#fff;
+            background:rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2><i class="fas fa-train"></i> Railway Admin Panel</h2>
+    <nav>
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-ticket-alt"></i> Tickets</a></li>
+            <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h1>Ticket Release Control</h1>
+
+        <form action="/releaseg">
+            <button class="button" type="submit">
+                <i class="fas fa-ticket-alt"></i> Release General Tickets
+            </button>
+        </form>
+
+        <form action="/releaset">
+            <button class="button" type="submit">
+                <i class="fas fa-bolt"></i> Release Tatkal Tickets
+            </button>
+        </form>
+
+        <form action="/">
+            <button class="button logout-btn" type="submit">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    © 2026 Railway Management System
+</footer>
+
+</body>
+</html>

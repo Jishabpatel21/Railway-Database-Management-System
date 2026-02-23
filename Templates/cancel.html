@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ticket Details</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+               url("https://images.unsplash.com/photo-1508780709619-79562169bc64");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    flex-direction:column;
+}
+
+/* NAVBAR */
+header{
+    width:100%;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(10px);
+}
+
+header h2{
+    color:#fff;
+    font-weight:600;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#fff;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#00d4ff;
+}
+
+/* MAIN SECTION */
+.container{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.ticket{
+    width:650px;
+    background:rgba(255,255,255,0.95);
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+    animation:fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(-30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.ticket-header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.ticket-header h1{
+    color:#333;
+}
+
+.status-badge{
+    display:inline-block;
+    padding:6px 15px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#00d4ff,#0072ff);
+    color:#fff;
+    font-size:13px;
+    margin-top:10px;
+}
+
+/* INFO ROWS */
+.info-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px;
+    margin-bottom:12px;
+    background:#f8f9fa;
+    border-radius:10px;
+    border-left:4px solid #667eea;
+}
+
+.info-row i{
+    color:#667eea;
+    margin-right:10px;
+}
+
+.info-label{
+    font-weight:600;
+    color:#764ba2;
+}
+
+.info-value{
+    font-weight:500;
+    color:#333;
+}
+
+/* BUTTONS */
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:30px;
+}
+
+button{
+    padding:14px 25px;
+    border:none;
+    border-radius:12px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    color:#fff;
+}
+
+.home-btn{
+    background:linear-gradient(135deg,#00d4ff,#0072ff);
+}
+
+.logout-btn{
+    background:linear-gradient(135deg,#ff416c,#ff4b2b);
+}
+
+.cancel-btn{
+    background:linear-gradient(135deg,#ff6b6b,#ee5a6f);
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 20px rgba(0,0,0,0.3);
+}
+
+@media(max-width:768px){
+    .ticket{
+        padding:20px;
+    }
+    .info-row{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:5px;
+    }
+    .buttons{
+        flex-direction:column;
+    }
+    button{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2><i class="fas fa-train"></i> Railway Reservation</h2>
+    <nav>
+        <ul>
+            <li><a href="/selecttrains"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-ticket-alt"></i> My Tickets</a></li>
+            <li><a href="/"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="ticket">
+        <div class="ticket-header">
+            <h1><i class="fas fa-ticket-alt"></i> Ticket Details</h1>
+            <div class="status-badge">Confirmed</div>
+        </div>
+
+        <div class="info-row">
+            <div><i class="fas fa-hashtag"></i> <span class="info-label">PNR</span></div>
+            <div class="info-value">{{PNR}}</div>
+        </div>
+
+        <div class="info-row">
+            <div><i class="fas fa-train"></i> <span class="info-label">Train Number</span></div>
+            <div class="info-value">{{Trainno}}</div>
+        </div>
+
+        <div class="info-row">
+            <div><i class="fas fa-map-marker-alt"></i> <span class="info-label">Boarding</span></div>
+            <div class="info-value">{{b}}</div>
+        </div>
+
+        <div class="info-row">
+            <div><i class="fas fa-map-marker-alt"></i> <span class="info-label">Arrival</span></div>
+            <div class="info-value">{{a}}</div>
+        </div>
+
+        <div class="info-row">
+            <div><i class="fas fa-calendar-alt"></i> <span class="info-label">Date</span></div>
+            <div class="info-value">{{Date}}</div>
+        </div>
+
+        <div class="info-row">
+            <div><i class="fas fa-chair"></i> <span class="info-label">Seats</span></div>
+            <div class="info-value">{{nseats}}</div>
+        </div>
+
+        <div class="buttons">
+            <form action="/selecttrains">
+                <button class="home-btn"><i class="fas fa-home"></i> Home</button>
+            </form>
+
+            <form action="/cancel">
+                <button class="cancel-btn"><i class="fas fa-times-circle"></i> Cancel</button>
+            </form>
+
+            <form action="/">
+                <button class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration - Personal Details</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+             url("https://images.unsplash.com/photo-1508780709619-79562169bc64");
+  background-size:cover;
+  background-position:center;
+}
+
+/* ================= HEADER ================= */
+header{
+  background:rgba(102,126,234,0.95);
+  padding:15px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:white;
+}
+
+header h2{
+  font-weight:600;
+}
+
+header a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+}
+
+/* ================= MAIN ================= */
+.container{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:30px 20px;
+}
+
+#regForm{
+  background:rgba(255,255,255,0.95);
+  border-radius:20px;
+  padding:40px;
+  width:100%;
+  max-width:750px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+
+h1{
+  text-align:center;
+  color:#667eea;
+  margin-bottom:25px;
+}
+
+/* FIELD GROUP */
+.field{
+  margin-bottom:18px;
+}
+
+.field label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:500;
+}
+
+.field input,
+.field select{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:2px solid #ddd;
+  font-size:14px;
+  transition:0.3s;
+}
+
+.field input:focus,
+.field select:focus{
+  border-color:#667eea;
+  outline:none;
+}
+
+/* BUTTONS */
+.button-container{
+  display:flex;
+  justify-content:space-between;
+  margin-top:25px;
+}
+
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.prev-btn{
+  background:#999;
+  color:white;
+}
+
+.next-btn{
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  color:white;
+}
+
+button:hover{
+  transform:translateY(-2px);
+}
+
+/* FOOTER */
+footer{
+  background:rgba(0,0,0,0.8);
+  color:white;
+  text-align:center;
+  padding:12px;
+}
+
+@media(max-width:768px){
+  #regForm{
+    padding:25px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <h2><i class="fas fa-train"></i> Railway Reservation</h2>
+  <div>
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+  </div>
+</header>
+
+<div class="container">
+
+<form id="regForm" action="/register3" method="post">
+
+<h1><i class="fas fa-id-card"></i> Personal Details</h1>
+
+<div class="field">
+  <label>First Name</label>
+  <input name="fname" required>
+</div>
+
+<div class="field">
+  <label>Middle Name</label>
+  <input name="mname">
+</div>
+
+<div class="field">
+  <label>Last Name</label>
+  <input name="lname" required>
+</div>
+
+<div class="field">
+  <label>Occupation</label>
+  <select name="occupation" required>
+    <option value="">Select Occupation</option>
+    <option>Government</option>
+    <option>Public</option>
+    <option>Private</option>
+    <option>Professional</option>
+    <option>Self-Employed</option>
+    <option>Student</option>
+    <option>Other</option>
+  </select>
+</div>
+
+<div class="field">
+  <label>Date of Birth</label>
+  <input type="date" name="DOB" required>
+</div>
+
+<div class="field">
+  <label>Marital Status</label>
+  <select name="martialstatus" required>
+    <option value="">Select Status</option>
+    <option value="married">Married</option>
+    <option value="unmarried">Unmarried</option>
+  </select>
+</div>
+
+<div class="field">
+  <label>Country</label>
+  <select name="country" required>
+    <option value="India" selected>India</option>
+    <option value="United States">United States</option>
+    <option value="United Kingdom">United Kingdom</option>
+    <option value="Canada">Canada</option>
+    <option value="Australia">Australia</option>
+    <option value="Germany">Germany</option>
+    <option value="France">France</option>
+    <option value="Japan">Japan</option>
+    <option value="Singapore">Singapore</option>
+  </select>
+</div>
+
+<div class="field">
+  <label>Gender</label>
+  <select name="sex" required>
+    <option value="">Select Gender</option>
+    <option>Male</option>
+    <option>Female</option>
+    <option>Transgender</option>
+  </select>
+</div>
+
+<div class="field">
+  <label>Email</label>
+  <input type="email" name="email" required>
+</div>
+
+<div class="field">
+  <label>Mobile Number</label>
+  <input type="tel" name="mobileno" pattern="[0-9]{10}" maxlength="10" required>
+</div>
+
+<div class="button-container">
+  <button type="button" class="prev-btn" onclick="history.back()">
+    <i class="fas fa-arrow-left"></i> Previous
+  </button>
+  <button type="submit" class="next-btn">
+    Next <i class="fas fa-arrow-right"></i>
+  </button>
+</div>
+
+</form>
+
+</div>
+
+<footer>
+  © 2026 Railway Reservation System | Safe & Secure Journey
+</footer>
+
+</body>
+</html>

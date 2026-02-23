@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Trains</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+             url("https://cdn.wallpapersafari.com/47/6/zbDYkv.jpg");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  min-height:100vh;
+}
+
+/* NAVBAR */
+.navbar{
+  background:rgba(102,126,234,0.95);
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:white;
+}
+
+.navbar a{
+  color:white;
+  text-decoration:none;
+  margin-right:20px;
+  font-weight:500;
+}
+
+.navbar a:hover{
+  opacity:0.8;
+}
+
+/* SEARCH CARD */
+#search{
+  background:rgba(255,255,255,0.95);
+  padding:30px;
+  border-radius:20px;
+  max-width:500px;
+  margin:40px auto;
+  box-shadow:0 10px 40px rgba(0,0,0,0.4);
+}
+
+#search h1{
+  text-align:center;
+  margin-bottom:20px;
+  color:#667eea;
+}
+
+.opt{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:2px solid #ddd;
+  margin-bottom:15px;
+  font-size:14px;
+}
+
+.opt:focus{
+  border-color:#667eea;
+  outline:none;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+}
+
+/* RESULT CARD */
+.bigbox{
+  background:rgba(255,255,255,0.95);
+  padding:25px;
+  border-radius:20px;
+  margin:30px auto;
+  max-width:1100px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.4);
+}
+
+.bigbox h2{
+  color:#667eea;
+  margin-bottom:15px;
+}
+
+/* SEAT GRID */
+.seat-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.reserve{
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  color:white;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.reserve:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.reserve p{
+  margin:8px 0;
+}
+
+.reserve p:first-child{
+  font-size:18px;
+  font-weight:700;
+}
+
+.link{
+  display:inline-block;
+  padding:8px 16px;
+  background:white;
+  color:#667eea;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  margin-top:10px;
+}
+
+.link:hover{
+  background:#f2f2f2;
+}
+
+.no-result{
+  text-align:center;
+  color:white;
+  font-size:18px;
+  margin:30px;
+  font-weight:600;
+}
+
+@media(max-width:768px){
+  .bigbox{
+    margin:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <div>
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="/runningstatus"><i class="fas fa-clock"></i> Running Status</a>
+    <a href="/pnr"><i class="fas fa-search"></i> PNR</a>
+  </div>
+  <div>
+    <a href="/"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </div>
+</div>
+
+<form id="search" action="/search" method="post">
+<h1><i class="fas fa-search"></i> Search Trains</h1>
+
+<select class="opt" name="Startstation" required>
+<option value="" disabled selected>Start Station</option>
+{% for j in z %}
+<option value="{{j[0]}}-{{j[1]}}">{{j[0]}}-{{j[1]}}</option>
+{% endfor %}
+</select>
+
+<select class="opt" name="Endstation" required>
+<option value="" disabled selected>End Station</option>
+{% for j in z %}
+<option value="{{j[0]}}-{{j[1]}}">{{j[0]}}-{{j[1]}}</option>
+{% endfor %}
+</select>
+
+<input class="opt" type="date" name="Date" required>
+
+<select class="opt" name="category" required>
+<option disabled selected>Select Category</option>
+<option>General</option>
+<option>Tatkal</option>
+</select>
+
+<button type="submit">Search</button>
+</form>
+
+{% for i in c %}
+<div class="bigbox">
+<h2><i class="fas fa-train"></i> {{i[0][0]}} - {{i[0][1]}}</h2>
+
+<div class="seat-grid">
+
+<div class="reserve">
+<p>SL</p>
+<p>Seats: {{i[0][3]}}</p>
+<p>Waiting: {{i[0][4]}}</p>
+<p>₹ {{x[c.index(i)]}}</p>
+{% if i[0][3] > 0 %}
+<a class="link" href="/npass/{{i[0][0]}}/{{x[c.index(i)]}}/SL/{{i[0][3]}}">Book</a>
+{% endif %}
+</div>
+
+<div class="reserve">
+<p>3A</p>
+<p>Seats: {{i[0][5]}}</p>
+<p>Waiting: {{i[0][6]}}</p>
+<p>₹ {{r[c.index(i)]}}</p>
+{% if i[0][5] > 0 %}
+<a class="link" href="/npass/{{i[0][0]}}/{{r[c.index(i)]}}/3A/{{i[0][5]}}">Book</a>
+{% endif %}
+</div>
+
+<div class="reserve">
+<p>2A</p>
+<p>Seats: {{i[0][7]}}</p>
+<p>Waiting: {{i[0][8]}}</p>
+<p>₹ {{w[c.index(i)]}}</p>
+{% if i[0][7] > 0 %}
+<a class="link" href="/npass/{{i[0][0]}}/{{w[c.index(i)]}}/2A/{{i[0][7]}}">Book</a>
+{% endif %}
+</div>
+
+<div class="reserve">
+<p>1A</p>
+<p>Seats: {{i[0][9]}}</p>
+<p>Waiting: {{i[0][10]}}</p>
+<p>₹ {{o[c.index(i)]}}</p>
+{% if i[0][9] > 0 %}
+<a class="link" href="/npass/{{i[0][0]}}/{{o[c.index(i)]}}/1A/{{i[0][9]}}">Book</a>
+{% endif %}
+</div>
+
+<div class="reserve">
+<p>CC</p>
+<p>Seats: {{i[0][11]}}</p>
+<p>Waiting: {{i[0][12]}}</p>
+<p>₹ {{t[c.index(i)]}}</p>
+{% if i[0][11] > 0 %}
+<a class="link" href="/npass/{{i[0][0]}}/{{t[c.index(i)]}}/CC/{{i[0][11]}}">Book</a>
+{% endif %}
+</div>
+
+</div>
+</div>
+{% endfor %}
+
+<div class="no-result">{{msg}}</div>
+
+<script>
+var today = new Date().toISOString().split('T')[0];
+document.getElementsByName("Date")[0].setAttribute('min', today);
+</script>
+
+</body>
+</html>

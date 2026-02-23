@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration - Address Details</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+             url("https://images.unsplash.com/photo-1508780709619-79562169bc64");
+  background-size:cover;
+  background-position:center;
+}
+
+/* HEADER */
+header{
+  background:rgba(102,126,234,0.95);
+  padding:15px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:white;
+}
+
+header a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+  transition:0.3s;
+}
+
+header a:hover{
+  opacity:0.8;
+}
+
+/* MAIN */
+.container{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:30px 20px;
+}
+
+#regForm{
+  background:rgba(255,255,255,0.95);
+  border-radius:20px;
+  padding:40px;
+  width:100%;
+  max-width:700px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+
+h1{
+  text-align:center;
+  color:#667eea;
+  margin-bottom:25px;
+}
+
+/* FIELD */
+.field{
+  margin-bottom:18px;
+}
+
+.field label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:500;
+}
+
+.field input{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:2px solid #ddd;
+  font-size:14px;
+  transition:0.3s;
+}
+
+.field input:focus{
+  border-color:#667eea;
+  outline:none;
+  box-shadow:0 0 0 3px rgba(102,126,234,0.2);
+}
+
+.field input:invalid{
+  border-color:#ff4b2b;
+}
+
+/* BUTTON */
+.button-container{
+  text-align:right;
+  margin-top:20px;
+}
+
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  color:white;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* FOOTER */
+footer{
+  background:rgba(0,0,0,0.8);
+  color:white;
+  text-align:center;
+  padding:12px;
+}
+
+@media(max-width:768px){
+  #regForm{
+    padding:25px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2><i class="fas fa-train"></i> Railway Reservation</h2>
+  <div>
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+  </div>
+</header>
+
+<div class="container">
+
+<form id="regForm" action="/register" method="post">
+
+<h1><i class="fas fa-map-marker-alt"></i> Address Details</h1>
+
+<div class="field">
+  <label>Flat / Door / Block No.</label>
+  <input name="fno" required>
+</div>
+
+<div class="field">
+  <label>Street / Lane</label>
+  <input name="lane" required>
+</div>
+
+<div class="field">
+  <label>Area / Locality</label>
+  <input name="area" required>
+</div>
+
+<div class="field">
+  <label>City</label>
+  <input name="city" required>
+</div>
+
+<div class="field">
+  <label>State</label>
+  <input name="state" required>
+</div>
+
+<div class="field">
+  <label>Pincode</label>
+  <input type="text" name="pincode" pattern="[0-9]{6}" maxlength="6" required>
+</div>
+
+<div class="button-container">
+  <button type="submit">
+    <i class="fas fa-check-circle"></i> Submit Registration
+  </button>
+</div>
+
+</form>
+</div>
+
+<footer>
+  © 2026 Railway Reservation System | Safe & Secure Journey
+</footer>
+
+</body>
+</html>

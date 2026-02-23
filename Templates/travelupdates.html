@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Railway Reservation System</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+             url("https://cdn.wallpapersafari.com/47/6/zbDYkv.jpg");
+  background-size:cover;
+  background-position:center;
+  min-height:100vh;
+  color:white;
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+  background:linear-gradient(135deg,#d38312,#a83279);
+}
+
+.navbar-left{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+.navbar a{
+  text-decoration:none;
+  color:white;
+  font-weight:500;
+  transition:0.3s;
+}
+
+.navbar a:hover{
+  opacity:0.8;
+}
+
+.dropdown{
+  position:relative;
+}
+
+.dropdown-content{
+  display:none;
+  position:absolute;
+  top:40px;
+  background:#a83279;
+  border-radius:8px;
+  overflow:hidden;
+}
+
+.dropdown-content a{
+  display:block;
+  padding:10px 15px;
+}
+
+.dropdown:hover .dropdown-content{
+  display:block;
+}
+
+.navbar-right a{
+  margin-left:20px;
+}
+
+/* HERO SECTION */
+.hero{
+  text-align:center;
+  padding:60px 20px 40px;
+}
+
+.hero h1{
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.hero p{
+  font-size:18px;
+  opacity:0.9;
+}
+
+/* INFO CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+  padding:40px;
+}
+
+.card{
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(8px);
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+.card h3{
+  margin-bottom:15px;
+  color:#ffd369;
+}
+
+.card p{
+  line-height:1.6;
+  font-size:14px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:15px;
+  background:rgba(0,0,0,0.8);
+  font-size:14px;
+}
+
+@media(max-width:768px){
+  .hero h1{
+    font-size:28px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+  <div class="navbar-left">
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="/travelupdates"><i class="fas fa-train"></i> Travel Updates</a>
+
+    <div class="dropdown">
+      <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+      <div class="dropdown-content">
+        <a onclick="ccn()">Customer Care</a>
+        <a onclick="tcl()">Ticket Cancellation</a>
+        <a onclick="queries()">Other Queries</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="#"><i class="fas fa-info-circle"></i> About</a>
+      <div class="dropdown-content">
+        <a href="/privacypolicy">Privacy Policy</a>
+        <a href="/t&c">Terms & Conditions</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar-right">
+    <a href="/adminlogin"><i class="fas fa-user-shield"></i> Admin</a>
+    <a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+    <a href="/register1"><i class="fas fa-user-plus"></i> Register</a>
+  </div>
+
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Railway Reservation System</h1>
+  <p>Book tickets, check status, travel safely & comfortably</p>
+</div>
+
+<!-- INFORMATION CARDS -->
+<div class="cards">
+
+  <div class="card">
+    <h3>🛡 COVID-19 Advisory</h3>
+    <p>
+      Wear mask, maintain social distancing and sanitize hands regularly.
+      Download Aarogya Setu App before travelling.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>🚆 Travel Guidelines</h3>
+    <p>
+      Follow state-wise health regulations upon arrival.
+      Visit respective state government websites for latest updates.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>🍽 e-Catering Service</h3>
+    <p>
+      Order your favourite meal and get it delivered at your seat.
+      Catering not included in fare.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>🛏 Coach Facilities</h3>
+    <p>
+      Blankets and linens available only for 2AC and above coaches.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Railway Reservation System | Safe & Secure Journey
+</footer>
+
+<script>
+function ccn(){
+  alert("Customer care numbers:\n0763-6612461\n0763-4090840");
+}
+function tcl(){
+  alert("For ticket cancellation:\ntc@railexp.co.in");
+}
+function queries(){
+  alert("For other queries:\nqueries@railexp.co.in");
+}
+</script>
+
+</body>
+</html>

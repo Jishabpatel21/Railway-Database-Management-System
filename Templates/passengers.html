@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Select Tickets</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+               url("https://images.unsplash.com/photo-1508780709619-79562169bc64");
+    background-size:cover;
+    background-position:center;
+}
+
+/* ================= HEADER ================= */
+header{
+    background:rgba(102,126,234,0.95);
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+}
+
+header h2{
+    font-weight:600;
+}
+
+header a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    transition:0.3s;
+}
+
+header a:hover{
+    text-decoration:underline;
+}
+
+/* ================= MAIN ================= */
+.container{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+#npass{
+    background:rgba(255,255,255,0.95);
+    border-radius:20px;
+    padding:50px 40px;
+    max-width:500px;
+    width:100%;
+    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+    animation:fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(-30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.ticket-icon{
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.ticket-icon i{
+    font-size:60px;
+    color:#667eea;
+}
+
+h1{
+    text-align:center;
+    color:#667eea;
+    margin-bottom:30px;
+}
+
+label{
+    font-weight:600;
+    margin-bottom:10px;
+    display:block;
+}
+
+.opt{
+    width:100%;
+    padding:15px;
+    font-size:15px;
+    border-radius:12px;
+    border:2px solid #ddd;
+    margin-bottom:25px;
+    transition:0.3s;
+}
+
+.opt:focus{
+    border-color:#667eea;
+    outline:none;
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 20px rgba(102,126,234,0.4);
+}
+
+/* ================= FOOTER ================= */
+footer{
+    background:rgba(0,0,0,0.8);
+    color:white;
+    text-align:center;
+    padding:12px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    #npass{
+        padding:30px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <h2><i class="fas fa-train"></i> Railway Reservation</h2>
+    <div>
+        <a href="/"><i class="fas fa-home"></i> Home</a>
+        <a href="/selecttrains"><i class="fas fa-ticket-alt"></i> Book Ticket</a>
+        <a href="/"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+</header>
+
+<!-- MAIN -->
+<div class="container">
+    <form id="npass" action="/npass1" method="post">
+
+        <div class="ticket-icon">
+            <i class="fas fa-users"></i>
+        </div>
+
+        <h1>Select Number of Tickets</h1>
+
+        <label for="tickets">
+            <i class="fas fa-ticket-alt"></i> Select Ticket(s)
+        </label>
+
+        <select class="opt" name="tickets" id="tickets" required>
+            <option value="">-- Select Tickets --</option>
+            <option value="1">1 Ticket</option>
+            <option value="2">2 Tickets</option>
+            <option value="3">3 Tickets</option>
+            <option value="4">4 Tickets</option>
+            <option value="5">5 Tickets</option>
+            <option value="6">6 Tickets</option>
+        </select>
+
+        <button type="submit">
+            <i class="fas fa-arrow-right"></i> Continue
+        </button>
+
+    </form>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 Railway Reservation System | Safe & Secure Journey
+</footer>
+
+</body>
+</html>
